@@ -1,26 +1,20 @@
-
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-
-
-def test_eight_components():
-    driver = webdriver.Chrome()
-
-    driver.get("https://www.selenium.dev/selenium/web/web-form.html")
-
-    title = driver.title
-    assert title == "Web form"
-
-    driver.implicitly_wait(0.5)
-
-    text_box = driver.find_element(by=By.NAME, value="my-text")
-    submit_button = driver.find_element(by=By.CSS_SELECTOR, value="button")
-
-    text_box.send_keys("Selenium")
-    submit_button.click()
-
-    message = driver.find_element(by=By.ID, value="message")
-    value = message.text
-    assert value == "Received!"
-
-    driver.quit()
+from Selenium import webdriver 
+import time 
+from Selenium.webdriver.common.keys import Keys 
+print("sample test case started") 
+driver = webdriver.Chrome() 
+#driver=webdriver.firefox() 
+#driver=webdriver.ie() 
+#maximize the window size 
+driver.maximize_window() 
+#navigate to the url 
+driver.get("https://www.google.com/") 
+#identify the Google search text box and enter the value 
+driver.find_element_by_name("q").send_keys("javatpoint") 
+time.sleep(3) 
+#click on the Google search button 
+driver.find_element_by_name("btnK").send_keys(Keys.ENTER) 
+time.sleep(3) 
+#close the browser 
+driver.close() 
+print("sample test case successfully completed") 
